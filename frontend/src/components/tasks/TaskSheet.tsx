@@ -167,7 +167,7 @@ export const TaskSheet = ({
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent className="bg-white" position="popper" sideOffset={4}>
+                  <SelectContent position="popper" sideOffset={4}>
                    {STATUS_ORDER.map((s) => (
                       <SelectItem key={s} value={s}>
                         <div className="flex items-center gap-2">
@@ -196,7 +196,7 @@ export const TaskSheet = ({
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent className="bg-white" position="popper" sideOffset={4}>
+                  <SelectContent position="popper" sideOffset={4}>
                     {(
                       ["low", "medium", "high", "urgent"] as TaskPriority[]
                     ).map((p) => (
@@ -224,7 +224,7 @@ export const TaskSheet = ({
                 <SelectTrigger>
                   <SelectValue placeholder="Unassigned" />
                 </SelectTrigger>
-                <SelectContent className="bg-white" position="popper" sideOffset={4}>
+                <SelectContent position="popper" sideOffset={4}>
                   <SelectItem value="unassigned">Unassigned</SelectItem>
                   {members.map((m) => (
                     <SelectItem key={m.id} value={m.id}>

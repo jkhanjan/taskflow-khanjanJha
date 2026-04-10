@@ -120,7 +120,7 @@ const ProjectDetails = () => {
             <SelectTrigger className="h-8 w-36 text-xs">
               <SelectValue placeholder="All statuses" />
             </SelectTrigger>
-            <SelectContent position="popper" className="bg-white" sideOffset={4}>
+            <SelectContent position="popper" sideOffset={4}>
               <SelectItem value="all">All statuses</SelectItem>
               {STATUS_ORDER.map((s) => (
                 <SelectItem key={s} value={s}>
@@ -142,7 +142,7 @@ const ProjectDetails = () => {
             <SelectTrigger className="h-8 w-36 text-xs">
               <SelectValue placeholder="All assignees" />
             </SelectTrigger>
-            <SelectContent position="popper" className="bg-white" sideOffset={4}>
+            <SelectContent position="popper" sideOffset={4}>
               <SelectItem value="all">All assignees</SelectItem>
                 {project.members.map((m) => (
                 <SelectItem key={m.id} value={m.id}>
