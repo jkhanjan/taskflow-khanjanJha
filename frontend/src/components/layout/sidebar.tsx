@@ -8,7 +8,7 @@ import { Toggle } from "@/components/ui/toggle"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const navItems = [
-  { icon: Folder, label: "Projects", href: "#" },
+  { icon: Folder, label: "Projects", href: "/projects" },
   { icon: CheckSquare, label: "All Tasks", href: "#" },
   { icon: Settings, label: "Settings", href: "#" },
 ]
@@ -20,7 +20,7 @@ export function Sidebar() {
     <TooltipProvider delayDuration={0}>
       <aside
         className={cn(
-          "hidden md:flex flex-col border-r bg-background transition-all duration-300 ease-in-out",
+          "hidden md:flex flex-col border-r transition-all duration-300 ease-in-out",
           collapsed ? "w-14" : "w-56"
         )}
       >
@@ -85,44 +85,44 @@ export function Sidebar() {
             )
           )}
         </nav>
-=
+        
        <div className="mt-auto p-3">
-  <Separator className="mb-3" />
+        <Separator className="mb-3" />
 
-  <div
-    className={cn(
-      "flex items-center gap-2",
-      collapsed && "flex-col"
-    )}
-  >
-    {collapsed ? (
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Toggle
-            aria-label="Toggle theme"
-            size="icon"
-            variant="outline"
-          >
-            <Sun className="h-4 w-4" />
-          </Toggle>
-        </TooltipTrigger>
-        <TooltipContent side="right">
-          Light Mode
-        </TooltipContent>
-      </Tooltip>
-    ) : (
-      <Toggle aria-label="Toggle theme" size="sm" variant="outline">
-        <Sun className="group-data-[state=on]/toggle:fill-foreground" />
-        Light Mode
-      </Toggle>
-    )}
+        <div
+          className={cn(
+            "flex items-center gap-2",
+            collapsed && "flex-col"
+          )}
+        >
+          {collapsed ? (
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Toggle
+                  aria-label="Toggle theme"
+                  size="icon"
+                  variant="outline"
+                >
+                  <Sun className="h-4 w-4" />
+                </Toggle>
+              </TooltipTrigger>
+              <TooltipContent side="right">
+                Light Mode
+              </TooltipContent>
+            </Tooltip>
+          ) : (
+            <Toggle aria-label="Toggle theme" size="sm" variant="outline">
+              <Sun className="group-data-[state=on]/toggle:fill-foreground" />
+              Light Mode
+            </Toggle>
+          )}
 
-    <Avatar className="h-8 w-8">
-      <AvatarImage src="https://github.com/shadcn.png" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
-  </div>
-</div>
+          <Avatar className="h-8 w-8">
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+        </div>
+      </div>
 
       </aside>
     </TooltipProvider>
