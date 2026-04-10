@@ -1,34 +1,36 @@
-// router.tsx
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom"
 
-import { LoginPage } from "@/pages/auth/login";
-import { RegisterPage } from "@/pages/auth/register";
-import ProjectDetails from "@/pages/projects/project-details";
-import Project from "@/pages/projects/project";
-import { AppLayout } from "@/components/layout/applayout";
-
-// Optional: Import a NotFound page if you have one
-// import NotFoundPage from "./pages/NotFoundPage";
+import { LoginPage } from "@/pages/auth/login"
+import { RegisterPage } from "@/pages/auth/register"
+import ProjectDetails from "@/pages/projects/project-details"
+import Project from "@/pages/projects/project"
+import { AppLayout } from "@/components/layout/applayout"
+import { ProtectedRoute } from "@/components/auth/protected-routes"
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <AppLayout />,
+    element: <ProtectedRoute />, 
     children: [
       {
-        index: true,
-        element: <Navigate to="/projects" />,
-      },
-      {
-        path: "projects",
+        path: "/",
+        element: <AppLayout />,
         children: [
           {
             index: true,
-            element: <Project />,
+            element: <Navigate to="/projects" />,
           },
           {
-            path: ":id",
-            element: <ProjectDetails />,
+            path: "projects",
+            children: [
+              {
+                index: true,
+                element: <Project />,
+              },
+              {
+                path: ":id",
+                element: <ProjectDetails />,
+              },
+            ],
           },
         ],
       },
@@ -42,6 +44,6 @@ export const router = createBrowserRouter([
     path: "/register",
     element: <RegisterPage />,
   },
-]);
+])
 
-export default router;
+export default router
