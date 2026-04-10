@@ -103,9 +103,9 @@ const Project = () => {
   };
 
   return (
-    <div className="flex flex-col h-full">
+  <div className="flex flex-col h-full bg-background text-foreground">
       {/* Header */}
-      <div className="px-6 py-4">
+      <div className="px-6 py-4 border-b bg-background">
         <div className="flex items-center justify-between">
          <h2 className="text-sm md:text-base lg:text-lg font-semibold">
           Your Projects: {'user'}
@@ -118,8 +118,8 @@ const Project = () => {
       </div>
 
       <Dialog open={createOpen} onOpenChange={setCreateOpen} >
-         <DialogOverlay className="bg-white/80 backdrop-blur-lg" />
-          <DialogContent className="sm:max-w-md ">
+          <DialogOverlay className="bg-background/80 backdrop-blur-lg" />
+          <DialogContent className="sm:max-w-md bg-card text-card-foreground">
             <DialogHeader>
               <DialogTitle>Create New Project</DialogTitle>
             </DialogHeader>
@@ -146,7 +146,7 @@ const Project = () => {
 
       {/* ── Table ── */}
       <ScrollArea className="flex-1">
-          <div className="rounded-lg overflow-hidden">
+          <div className="rounded-lg overflow-hidden border bg-card">
           <Table className="w-full table-fixed">
           <TableHeader>
             <TableRow className="bg-muted/30 hover:bg-muted/30">

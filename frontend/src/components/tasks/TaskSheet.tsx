@@ -112,7 +112,7 @@ export const TaskSheet = ({
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent className="w-full bg-white sm:max-w-md flex flex-col gap-0 p-0">
+      <SheetContent className="w-full sm:max-w-md flex flex-col gap-0 p-0 bg-background text-foreground">
         <SheetHeader className="px-6 pt-6 pb-4 border-b">
           <SheetTitle>{editingTask ? "Edit task" : "New task"}</SheetTitle>
         </SheetHeader>

@@ -2,10 +2,11 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { Folder, CheckSquare, Settings, PanelLeftClose, PanelLeftOpen, Sun } from "lucide-react"
+import { Folder, CheckSquare, Settings, PanelLeftClose, PanelLeftOpen, Sun, Moon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Toggle } from "@/components/ui/toggle"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { useTheme } from "@/hooks/use-theme"
 
 const navItems = [
   { icon: Folder, label: "Projects", href: "/projects" },
@@ -14,20 +15,22 @@ const navItems = [
 ]
 
 export function Sidebar() {
+  
   const [collapsed, setCollapsed] = useState(false)
+const { theme, toggleTheme } = useTheme()
 
   return (
     <TooltipProvider delayDuration={0}>
-      <aside
-        className={cn(
-          "hidden md:flex flex-col border-r transition-all duration-300 ease-in-out",
-          collapsed ? "w-14" : "w-56"
-        )}
-      >
+     <aside
+          className={cn(
+            "hidden md:flex flex-col border-r bg-background text-foreground ",
+            collapsed ? "w-14" : "w-56"
+          )}
+        >
         {/* Header */}
         <div
           className={cn(
-            "flex items-center h-14 px-3 shrink-0",
+            "flex items-center h-14 px-3 shrink-0 bg-background",
             collapsed ? "justify-center" : "justify-between"
           )}
         >
@@ -98,22 +101,43 @@ export function Sidebar() {
           {collapsed ? (
             <Tooltip>
               <TooltipTrigger asChild>
-                <Toggle
-                  aria-label="Toggle theme"
-                  size="icon"
-                  variant="outline"
-                >
+               <Toggle
+                aria-label="Toggle theme"
+                size="sm"
+                variant="outline"
+                pressed={theme === "dark"}
+                onPressedChange={toggleTheme}
+              >
                   <Sun className="h-4 w-4" />
                 </Toggle>
               </TooltipTrigger>
               <TooltipContent side="right">
-                Light Mode
+              {theme === "dark" ? (
+                  <Moon className="h-4 w-4" />
+                ) : (
+                  <Sun className="h-4 w-4" />
+                )}
               </TooltipContent>
             </Tooltip>
           ) : (
-            <Toggle aria-label="Toggle theme" size="sm" variant="outline">
-              <Sun className="group-data-[state=on]/toggle:fill-foreground" />
-              Light Mode
+           <Toggle
+              aria-label="Toggle theme"
+              size="sm"
+              variant="outline"
+              pressed={theme === "dark"}
+              onPressedChange={toggleTheme}
+            >
+              {theme === "dark" ? (
+                <>
+                  <Moon className="h-4 w-4" />
+                  Dark Mode
+                </>
+              ) : (
+                <>
+                  <Sun className="h-4 w-4" />
+                  Light Mode
+                </>
+              )}
             </Toggle>
           )}
 
