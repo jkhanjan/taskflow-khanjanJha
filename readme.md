@@ -4,7 +4,7 @@ Taskflow-KJ is a modern web application designed to manage tasks and projects ef
 
 ## Features
 
-- **Authentication**: Secure login and registration system.
+- **Authentication**: Secure login system.
 - **Task Management**: Create, update, and manage tasks.
 - **Project Management**: Organize tasks into projects.
 - **Responsive Design**: Optimized for both desktop and mobile devices.
@@ -12,7 +12,7 @@ Taskflow-KJ is a modern web application designed to manage tasks and projects ef
 
 ## Tech Stack
 
-- **Frontend**: React, TypeScript, TailwindCSS
+- **Frontend**: React, TypeScript, TailwindCSS, ShadCn
 - **Routing**: React Router
 - **State Management**: Context API
 - **Build Tool**: Vite
@@ -120,3 +120,7 @@ Impact: This ensures a seamless UI transition and prevents "Flash of Unstyled Co
 5. Improve my codebase quality
 
 6. Making the taks draggable up and down
+
+## final thoughts
+
+  The project may sound simple but it was testing my core architectural decision making to make it scalable as i tried to do my best but i still think there are improvements left, 
