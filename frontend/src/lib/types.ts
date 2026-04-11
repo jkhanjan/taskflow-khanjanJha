@@ -25,6 +25,7 @@ export interface Project {
   description?: string;
   owner_id: string;
   members: Assignee[];
+  created_at: string;
 }
 
 export interface TaskFormData {

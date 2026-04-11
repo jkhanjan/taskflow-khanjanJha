@@ -25,6 +25,7 @@ import { FAKE_PROJECT, PRIORITY_CONFIG, STATUS_CONFIG } from "@/lib/constants";
 import { Badge } from "../ui/badge";
 import { InitialsAvatar } from "../ui/initital-avatar";
 import { cn } from "@/lib/utils";
+import type { Task } from "@/lib/types";
 
 export const TaskTable = ({
   filteredTasks,
@@ -32,7 +33,7 @@ export const TaskTable = ({
   setTaskToDelete,
   setDeleteDialogOpen,
 }: {
-  filteredTasks: any[];
+  filteredTasks: Task[];
   openEditSheet: (task: any) => void;
   setTaskToDelete: (task: any) => void;
   setDeleteDialogOpen: (open: boolean) => void;
@@ -181,7 +182,7 @@ export const TaskTable = ({
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {filteredTasks.map((task) => (
+                {filteredTasks.map((task ) => (
                   <TableRow key={task.id} className="group">
                     {/* Title */}
                     <TableCell className="font-medium flex items-start flex-col">
@@ -238,9 +239,9 @@ export const TaskTable = ({
                       {task.due_date ? (
                         <span
                           className={cn(
-                            "text-sm",
+                            "text-sm flex items-center gap-1.5",
                             new Date(task.due_date) < new Date()
-                              ? "text-red-500"
+                              ? "text-blue-500"
                               : "text-muted-foreground"
                           )}
                         >

@@ -3,9 +3,9 @@ import { createBrowserRouter, Navigate } from "react-router-dom"
 import { LoginPage } from "@/pages/auth/login"
 import { RegisterPage } from "@/pages/auth/register"
 import ProjectDetails from "@/pages/projects/project-details"
-import Project from "@/pages/projects/project"
 import { AppLayout } from "@/components/layout/applayout"
 import { ProtectedRoute } from "@/components/auth/protected-routes"
+import ProjectPage from "@/pages/projects/project"
 
 export const router = createBrowserRouter([
   {
@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
             children: [
               {
                 index: true,
-                element: <Project />,
+                element: <ProjectPage />,
               },
               {
                 path: ":id",

@@ -16,6 +16,7 @@ export const FAKE_PROJECT: Project[] = [
     description: "Redesign the marketing site with the new brand guidelines.",
     owner_id: "u1",
     members: FAKE_MEMBERS,
+    created_at: "2026-10-04",
   }, 
     {
     id: "p2",
@@ -23,6 +24,7 @@ export const FAKE_PROJECT: Project[] = [
     description: "Develop the new mobile application for iOS and Android.",
     owner_id: "u2",
     members: FAKE_MEMBERS,
+    created_at: "2026-10-04",
   }, 
 ];
 
@@ -130,14 +132,11 @@ export const STATUS_CONFIG: Record<TaskStatus, { label: string; dotColor: string
   done:        { label: "Done",        dotColor: "bg-emerald-500" },
 };
 
-export const PRIORITY_CONFIG: Record<
-  TaskPriority,
-  { label: string; color: string }
-> = {
+export const PRIORITY_CONFIG = {
   low:    { label: "Low",    color: "bg-slate-100 text-slate-600 border-slate-200" },
   medium: { label: "Medium", color: "bg-blue-50 text-blue-600 border-blue-200" },
   high:   { label: "High",   color: "bg-orange-50 text-orange-600 border-orange-200" },
   urgent: { label: "Urgent", color: "bg-red-50 text-red-600 border-red-200" },
-};
+} as const
 
 export const STATUS_ORDER: TaskStatus[] = ["todo", "in_progress", "in_review", "done"];

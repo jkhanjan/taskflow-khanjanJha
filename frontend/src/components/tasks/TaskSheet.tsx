@@ -254,7 +254,7 @@ export const TaskSheet = ({
                     {form.due_date ? format(form.due_date, "PPP") : "Pick a date"}
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-auto p-0 bg-white" align="start">
+                <PopoverContent className="w-auto p-0" align="start">
                   <Calendar
                     mode="single"
                     selected={form.due_date}

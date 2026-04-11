@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Button } from "../ui/button"
 import { Menu } from "lucide-react"
 
-export function AppLayout({ children }: { children?: React.ReactNode }) {
+export function AppLayout() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
